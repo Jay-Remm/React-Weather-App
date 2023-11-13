@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 function App() {
@@ -6,7 +6,6 @@ function App() {
   const [location, setLocation] = useState('')
   const [weatherData, setWeatherData] = useState({})
 
-  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${geoData.lat}&lon=${geoData.lon}&units=imperial&appid=d294d3c7454e99215e3d41d833d9b7df`
 
   const geoLocationUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=d294d3c7454e99215e3d41d833d9b7df`
 
@@ -45,7 +44,7 @@ function App() {
           type="text" 
           value={location}
           onChange={e => setLocation(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           placeholder="Enter location" />
         </div>
         <div className="top">
@@ -60,7 +59,7 @@ function App() {
           </div>
         </div>
 
-        {weatherData.name != undefined && 
+        {weatherData.name !== undefined && 
           <div className="bottom">
           <div className="feels">
           <p>Feels like:</p>

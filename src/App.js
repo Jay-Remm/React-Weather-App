@@ -7,7 +7,7 @@ function App() {
   const [weatherData, setWeatherData] = useState({})
 
 
-  const geoLocationUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=d294d3c7454e99215e3d41d833d9b7df`
+  const geoLocationUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=d294d3c7454e99215e3d41d833d9b7df`
 
 
   const handleKeyPress = async (e) => {
@@ -27,7 +27,7 @@ function App() {
   async function getWeatherAPI(geoData) {
     if (geoData && geoData.lat && geoData.lon) {
       try {
-        const weatherResponse = await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${geoData.lat}&lon=${geoData.lon}&units=imperial&appid=d294d3c7454e99215e3d41d833d9b7df`);
+        const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${geoData.lat}&lon=${geoData.lon}&units=imperial&appid=d294d3c7454e99215e3d41d833d9b7df`);
         setWeatherData(weatherResponse.data);
       } catch (error) {
         console.error("Error fetching weather data:", error);
